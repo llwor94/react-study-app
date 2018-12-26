@@ -6,12 +6,12 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 
-import comebinedReducers from "./reducers";
+import combinedReducers from "./Reducers/rootReducer";
 
 import "./index.css";
 import App from "./App";
 
-const store = createStore(comebinedReducers, applyMiddleware(thunk, logger));
+const store = createStore(combinedReducers, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <Provider store={store}>
