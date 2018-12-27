@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
-import { Route, NavLink, withRouter } from "react-router-dom";
 
 import Navbar from "./components/navbar/Navbar";
+import Dashboard from "./components/dashboard/Dashboard";
 
 import "./index.css";
 
@@ -13,6 +13,9 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Navbar />
+          <Switch>
+            <Route path="/" component={Dashboard} />
+          </Switch>
         </div>
       </BrowserRouter>
     );

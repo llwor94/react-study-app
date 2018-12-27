@@ -1,16 +1,13 @@
 import React, { Component } from "react";
+import QuizList from "../quizzes/QuizList";
+import { RowDiv } from "../../styled/containers";
 
 class Dashboard extends Component {
   render() {
     return (
       <div className="dashboard container">
-        <div className="row">
-          <div className="col s12 m6 l4">
-            <div className="card">
-              <h3>Favorites</h3>
-            </div>
-          </div>
-        </div>
+        <h3>Favorites</h3>
+        <QuizList />
       </div>
     );
   }
