@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 
 import Navbar from "./components/navbar/Navbar";
 import Dashboard from "./components/dashboard/Dashboard";
+import QuizDetails from "./components/quizzes/QuizDetails";
+import SignIn from "./components/auth/SignIn";
+import SignUp from "./components/auth/SignUp";
 
 import "./index.css";
 
@@ -14,7 +17,10 @@ class App extends Component {
         <div className="App">
           <Navbar />
           <Switch>
-            <Route path="/" component={Dashboard} />
+            <Route exact path="/" component={Dashboard} />
+            <Route path="/quizzes/:id" component={QuizDetails} />
+            <Route path="/signin" component={SignIn} />
+            <Route path="/signup" component={SignUp} />
           </Switch>
         </div>
       </BrowserRouter>

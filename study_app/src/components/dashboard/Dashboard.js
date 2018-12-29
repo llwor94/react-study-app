@@ -6,7 +6,7 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="dashboard container">
-        <h3>Favorites</h3>
+        <h3>Quizzes</h3>
         <QuizList />
       </div>
     );

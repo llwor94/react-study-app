@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const DivWrap = styled.div`
   text-align: center;
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
   @media (min-width: 601px) {
     width: 48%;
   }
@@ -9,10 +13,7 @@ export const DivWrap = styled.div`
     width: 31%;
   }
   @media (min-width: 1201px) {
-    width: 24%;
-  }
-  @media (max-width: 600px) {
-    width: 100%;
+    width: 23%;
   }
 `;
 
