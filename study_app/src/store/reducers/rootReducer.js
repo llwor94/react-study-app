@@ -1,10 +1,10 @@
-const initState = {
-  quizes: [],
-  loggedIn: false
-};
+import authReducer from "./authReducer";
+import quizReducer from "./quizReducer";
+import { combineReducers } from "redux";
 
-const rootReducer = (state = initState, action) => {
-  console.log(state);
-};
+const rootReducer = combineReducers({
+  auth: authReducer,
+  quiz: quizReducer
+});
 
 export default rootReducer;

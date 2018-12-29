@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { addQuiz } from "../../store/actions/quizAction";
 
 class CreateQuiz extends Component {
   state = {
@@ -15,7 +17,7 @@ class CreateQuiz extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.addQuiz(this.state);
   };
 
   render() {
@@ -40,4 +42,13 @@ class CreateQuiz extends Component {
   }
 }
 
-export default CreateQuiz;
+const mapDispatchToProps = dispatch => {
+  return {
+    addQuiz: quiz => dispatch(addQuiz(quiz))
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(CreateQuiz);

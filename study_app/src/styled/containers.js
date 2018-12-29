@@ -12,9 +12,6 @@ export const DivWrap = styled.div`
   @media (min-width: 993px) {
     width: 31%;
   }
-  @media (min-width: 1201px) {
-    width: 23%;
-  }
 `;
 
 export const FlexWrap = styled.div`

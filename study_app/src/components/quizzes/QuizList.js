@@ -2,13 +2,11 @@ import React from "react";
 import { FlexWrap } from "../../styled/containers";
 import QuizSummary from "./QuizSummary";
 
-const QuizList = () => {
+const QuizList = ({ quizzes }) => {
   return (
     <FlexWrap className="quiz-list section">
-      <QuizSummary />
-      <QuizSummary />
-      <QuizSummary />
-      <QuizSummary />
+      {quizzes &&
+        quizzes.map(quiz => <QuizSummary quiz={quiz} key={quiz.id} />)}
     </FlexWrap>
   );
 };
