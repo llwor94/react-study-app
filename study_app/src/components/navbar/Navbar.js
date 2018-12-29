@@ -6,7 +6,7 @@ import SignedOutLinks from "./SignedOutLinks";
 
 const Navbar = () => {
   return (
-    <nav className="nav-wrapper red darken-4">
+    <nav className="nav-wrapper red darken-4 margin-bottom-50px">
       <div className="container">
         <Link to="/" className="brand-logo">
           Lambda Study App
