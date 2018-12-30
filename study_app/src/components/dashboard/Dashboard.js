@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import QuizList from "../quizzes/QuizList";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import { getQuizzes } from "../../store/actions/quizAction";
 
 class Dashboard extends Component {
@@ -9,9 +10,9 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { quizzes } = this.props;
-    console.log(this.props.quizzes);
+    const { quizzes, isLoggedIn } = this.props;
 
+    if (!isLoggedIn) return <Redirect to="/signin" />;
     return (
       <div className="dashboard container">
         <h3>Quizzes</h3>
@@ -23,6 +24,7 @@ class Dashboard extends Component {
 
 const mapStateToProps = state => {
   return {
+    isLoggedIn: state.auth.isLoggedIn,
     quizzes: state.quiz.quizzes
   };
 };

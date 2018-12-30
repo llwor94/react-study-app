@@ -9,12 +9,7 @@ const Navbar = props => {
   const { isLoggedIn } = props;
   console.log("isLoggedIn:", isLoggedIn);
 
-  let links;
-  if (isLoggedIn) {
-    links = <SignedInLinks />;
-  } else {
-    links = <SignedOutLinks />;
-  }
+  const links = isLoggedIn ? <SignedInLinks /> : <SignedOutLinks />;
 
   return (
     <nav className="nav-wrapper red darken-4 margin-bottom-50px">

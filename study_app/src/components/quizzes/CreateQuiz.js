@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import { addQuiz } from "../../store/actions/quizAction";
 
 class CreateQuiz extends Component {
@@ -21,6 +22,10 @@ class CreateQuiz extends Component {
   };
 
   render() {
+    const { isLoggedIn } = this.props;
+
+    if (!isLoggedIn) return <Redirect to="/signin" />;
+
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit} className="white">
@@ -42,7 +47,13 @@ class CreateQuiz extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    isLoggedIn: state.auth.isLoggedIn
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   { addQuiz }
 )(CreateQuiz);
