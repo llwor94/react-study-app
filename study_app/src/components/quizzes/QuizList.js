@@ -6,7 +6,9 @@ const QuizList = ({ quizzes }) => {
   return (
     <FlexWrap className="quiz-list section">
       {quizzes &&
-        quizzes.map(quiz => <QuizSummary quiz={quiz} key={quiz.id} />)}
+        quizzes.map(quiz => (
+          <QuizSummary quiz={quiz} key={quiz.id} id={quiz.id} />
+        ))}
     </FlexWrap>
   );
 };

@@ -21,7 +21,7 @@ class SignIn extends Component {
   };
 
   render() {
-    const { loggingIn, isLoggedIn, authErr } = this.props;
+    const { loggingIn, authErr } = this.props;
 
     if (loggingIn) {
       return <h1 className="center">Loading...</h1>;
@@ -65,7 +65,6 @@ class SignIn extends Component {
 
 const mapStateToProps = state => ({
   loggingIn: state.auth.loggingIn,
-  isLoggedIn: state.auth.isLoggedIn,
   authErr: state.auth.authErr
 });
 
