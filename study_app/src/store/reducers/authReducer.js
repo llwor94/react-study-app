@@ -4,7 +4,8 @@ import {
   LOGIN_FAIL,
   REGISTERING,
   REGISTER_SUCCESS,
-  REGISTER_FAIL
+  REGISTER_FAIL,
+  LOGOUT
 } from "../actions/authAction";
 
 const initState = {
@@ -23,7 +24,6 @@ const authReducer = (state = initState, action) => {
       return {
         ...state,
         loggingIn: true,
-        isLoggedIn: false,
         authErr: null
       };
     case LOGIN_SUCCESS:
@@ -33,8 +33,8 @@ const authReducer = (state = initState, action) => {
         loggingIn: false,
         isLoggedIn: true,
         authErr: null,
-        user: action.payload.user,
-        token: action.payload.token
+        user: action.payload.data.user,
+        token: action.payload.data.token
       };
     case LOGIN_FAIL:
       console.log("login fail");
@@ -50,7 +50,6 @@ const authReducer = (state = initState, action) => {
       return {
         ...state,
         loggingIn: true,
-        isLoggedIn: false,
         authErr: null
       };
     case REGISTER_SUCCESS:
@@ -60,8 +59,8 @@ const authReducer = (state = initState, action) => {
         loggingIn: false,
         isLoggedIn: true,
         authErr: null,
-        user: action.payload.user,
-        token: action.payload.token
+        user: action.payload.data.user,
+        token: action.payload.data.token
       };
     case REGISTER_FAIL:
       console.log("register fail");
@@ -70,6 +69,13 @@ const authReducer = (state = initState, action) => {
         loggingIn: false,
         isLoggedIn: false,
         authErr: action.err
+      };
+
+    case LOGOUT:
+      return {
+        isLoggedIn: false,
+        user: "",
+        token: ""
       };
 
     default:

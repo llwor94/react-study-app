@@ -8,13 +8,15 @@ export const REGISTERING = "REGISTERING";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAIL = "REGISTER_FAIL";
 
+export const LOGOUT = "LOGOUT";
+
 export const signIn = credentials => dispatch => {
   dispatch({ type: LOGGING_IN });
 
   axios
     .post("https://lambda-study-app.herokuapp.com/api/auth/login", credentials)
     .then(res => {
-      console.log(res);
+      console.log("login", res);
       dispatch({ type: LOGIN_SUCCESS, payload: res });
     })
     .catch(err => dispatch({ type: LOGIN_FAIL, err }));
@@ -26,8 +28,15 @@ export const signUp = userInfo => dispatch => {
   axios
     .post("https://lambda-study-app.herokuapp.com/api/auth/register", userInfo)
     .then(res => {
-      console.log(res);
+      console.log("register", res);
       dispatch({ type: REGISTER_SUCCESS, payload: res });
     })
     .catch(err => dispatch({ type: REGISTER_FAIL, err }));
+};
+
+export const logOut = () => {
+  console.log("logging out");
+  return {
+    type: "LOGOUT"
+  };
 };
