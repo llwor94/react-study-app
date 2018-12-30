@@ -32,7 +32,7 @@ const quizReducer = (state = initState, action) => {
       return {
         ...state,
         fetchingQuizzes: false,
-        err: action.payload
+        err: action.err
       };
 
     case CREATE_QUIZ_START:
@@ -50,7 +50,7 @@ const quizReducer = (state = initState, action) => {
       return {
         ...state,
         addingQuiz: false,
-        err: action.payload
+        err: action.err
       };
 
     default:

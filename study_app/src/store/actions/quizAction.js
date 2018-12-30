@@ -23,5 +23,5 @@ export const addQuiz = quiz => (dispatch, getState) => {
   axios
     .post("https://lambda-study-app.herokuapp.com/api/quizzes", quiz)
     .then(dispatch({ type: CREATE_QUIZ_SUCCESS }))
-    .catch(err => dispatch({ type: CREATE_QUIZ_FAIL, payload: err }));
+    .catch(err => dispatch({ type: CREATE_QUIZ_FAIL, err }));
 };

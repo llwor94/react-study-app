@@ -42,13 +42,7 @@ class CreateQuiz extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addQuiz: quiz => dispatch(addQuiz(quiz))
-  };
-};
-
 export default connect(
   null,
-  mapDispatchToProps
+  { addQuiz }
 )(CreateQuiz);
